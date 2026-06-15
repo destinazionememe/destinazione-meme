@@ -14,13 +14,13 @@ export function ButtonLink({
 }: ButtonLinkProps) {
   const className =
     variant === "primary"
-      ? "bg-blood text-white hover:bg-ember"
-      : "border border-white/15 text-white hover:border-white/35 hover:bg-white/5";
+      ? "border border-blood bg-blood text-white hover:border-ink hover:bg-ink"
+      : "border border-current text-current hover:bg-white hover:text-ink";
 
   return (
     <Link
       href={href}
-      className={`inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-bold uppercase tracking-wide transition ${className}`}
+      className={`inline-flex min-h-12 items-center justify-center px-6 text-xs font-bold uppercase tracking-[0.18em] transition duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${className}`}
     >
       {children}
     </Link>

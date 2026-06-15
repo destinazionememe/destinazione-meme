@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
@@ -10,57 +12,72 @@ export const metadata: Metadata = {
 
 export default function ChiSonoPage() {
   return (
-    <main>
-      <section className="border-b border-white/10 bg-coal">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-ember">
-              Fondatore
+    <main className="bg-paper text-ink">
+      <section className="relative overflow-hidden bg-coal px-4 pb-16 pt-40 text-paper sm:px-8 lg:px-12 lg:pb-24">
+        <div className="ambient-orb -left-44 top-28 bg-blood" />
+        <div className="mx-auto grid max-w-[94rem] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <Reveal className="relative z-10">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-sage">
+              Dietro il progetto
             </p>
-            <h1 className="mt-4 text-5xl font-black tracking-tight text-white">
-              Simone Pedozzi
+            <h1 className="mt-6 font-display text-[clamp(4.5rem,11vw,10rem)] uppercase leading-[0.8]">
+              Simone
+              <br />
+              <span className="text-outline">Pedozzi.</span>
             </h1>
-            <p className="mt-5 text-lg leading-8 text-ash">
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-white/60">
               Professionista del marketing digitale, copywriter e content
-              creator. Destinazione Meme nasce dalla sua passione per anime,
+              creator. Destinazione Meme nasce dall&apos;incontro tra anime,
               manga, storytelling, Giappone e cultura internet.
             </p>
-            <div className="mt-8">
-              <ButtonLink href="/contatti">Contattami</ButtonLink>
+            <div className="mt-9">
+              <ButtonLink href="/contatti">Parliamone</ButtonLink>
             </div>
-          </div>
-          <div className="rounded-lg border border-white/10 bg-black/35 p-6">
-            <p className="text-2xl font-black leading-tight text-white">
-              &quot;Meglio un contenuto personale e sincero che un contenuto
-              perfetto ma impersonale.&quot;
-            </p>
-            <p className="mt-5 text-sm leading-7 text-ash">
-              La filosofia del progetto e semplice: parlare di cultura nerd con
-              competenza, ma senza alzare barriere. La passione deve essere un
-              invito, non un test.
-            </p>
-          </div>
+          </Reveal>
+          <Reveal className="relative aspect-[4/5] overflow-hidden border border-white/15 lg:max-h-[42rem]">
+            <Image
+              src="/images/hero-destinazione-meme.webp"
+              alt="Simone Pedozzi e l'immaginario di Destinazione Meme"
+              fill
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              className="object-cover object-center grayscale transition duration-700 hover:scale-105 hover:grayscale-0"
+            />
+          </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Approccio"
-          title="Marketing, meme e manga possono stare nella stessa stanza."
-          text="Il punto di vista di Simone unisce strategia di comunicazione, scrittura e cultura pop. Questo permette a Destinazione Meme di essere leggero senza essere vuoto, ironico senza diventare rumore, appassionato senza sembrare una scheda tecnica."
-        />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+      <section className="mx-auto max-w-[94rem] px-4 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Il punto di vista"
+            title="Marketing, meme e manga possono stare nella stessa stanza."
+            text="Il punto di vista di Simone unisce strategia di comunicazione, scrittura e cultura pop. Destinazione Meme può così essere leggero senza essere vuoto, ironico senza diventare rumore, appassionato senza sembrare una scheda tecnica."
+          />
+        </Reveal>
+        <div className="mt-16 border-y border-ink/20">
           {[
-            ["Copywriting", "Testi chiari, ritmo editoriale e attenzione al tono."],
-            ["Storytelling", "Ogni recensione cerca il perche emotivo, non solo il voto."],
-            ["Community", "Contenuti pensati per aprire conversazioni, non per chiuderle."],
-          ].map(([title, text]) => (
-            <article key={title} className="rounded-lg border border-white/10 bg-coal p-5">
-              <h2 className="text-xl font-black text-white">{title}</h2>
-              <p className="mt-3 text-sm leading-7 text-ash">{text}</p>
-            </article>
+            ["01", "Copywriting", "Testi chiari, ritmo editoriale e attenzione al tono."],
+            ["02", "Storytelling", "Ogni recensione cerca il perché emotivo, non soltanto il voto."],
+            ["03", "Community", "Contenuti pensati per aprire conversazioni, non per chiuderle."],
+          ].map(([number, title, text]) => (
+            <Reveal key={title}>
+              <article className="grid gap-4 border-b border-ink/15 py-8 last:border-b-0 md:grid-cols-[5rem_0.7fr_1fr] md:items-baseline">
+                <span className="text-xs font-bold text-blood">{number}</span>
+                <h2 className="font-display text-4xl uppercase">{title}</h2>
+                <p className="max-w-xl text-base leading-8 text-ink/60">{text}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="bg-sage px-4 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <Reveal className="mx-auto max-w-[94rem]">
+          <p className="max-w-5xl font-display text-[clamp(3rem,7vw,7rem)] uppercase leading-[0.9]">
+            &quot;Meglio un contenuto personale e sincero che un contenuto
+            perfetto ma impersonale.&quot;
+          </p>
+        </Reveal>
       </section>
     </main>
   );

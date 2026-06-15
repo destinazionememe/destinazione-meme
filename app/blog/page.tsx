@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArticleCard } from "@/components/ArticleCard";
-import { SectionHeading } from "@/components/SectionHeading";
+import { Reveal } from "@/components/Reveal";
 import { articles } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -11,27 +11,49 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading
-        eyebrow="Blog"
-        title="Approfondimenti per chi ama internet, ma ogni tanto vuole capirlo."
-        text="Un archivio pronto per guide, riflessioni, liste ragionate e pezzi evergreen su anime, manga, meme e cultura pop."
-      />
-      <div className="mt-8 flex flex-wrap gap-2">
-        {["Tutti", "Anime", "Manga", "Internet Culture", "Meme Lab"].map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-bold text-ash"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {articles.map((article) => (
-          <ArticleCard key={article.slug} article={article} />
-        ))}
-      </div>
+    <main className="bg-paper text-ink">
+      <section className="border-b border-ink/15 px-4 pb-16 pt-40 sm:px-8 lg:px-12 lg:pb-24">
+        <div className="mx-auto max-w-[94rem]">
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-blood">
+              Archivio / Blog
+            </p>
+            <h1 className="mt-6 max-w-7xl font-display text-[clamp(4.5rem,11vw,10rem)] uppercase leading-[0.8]">
+              Pensieri lunghi
+              <br />
+              <span className="text-blood">per internet veloce.</span>
+            </h1>
+            <p className="mt-10 max-w-2xl text-lg leading-8 text-ink/60">
+              Approfondimenti per chi ama internet, ma ogni tanto vuole capirlo.
+              Anime, manga, meme e cultura pop senza inseguire ogni notifica.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+      <section className="mx-auto max-w-[94rem] px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <div className="flex flex-wrap gap-x-7 gap-y-3 border-b border-ink/20 pb-6">
+          {["Tutti", "Anime", "Manga", "Internet Culture", "Meme Lab"].map(
+            (tag) => (
+              <span
+                key={tag}
+                className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/55"
+              >
+                {tag}
+              </span>
+            ),
+          )}
+        </div>
+        <div className="mt-14 grid gap-x-8 gap-y-16 md:grid-cols-2">
+          {articles.map((article, index) => (
+            <Reveal
+              key={article.slug}
+              className={index % 2 === 1 ? "md:mt-20" : ""}
+            >
+              <ArticleCard article={article} priority={index === 0} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

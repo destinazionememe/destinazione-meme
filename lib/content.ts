@@ -16,7 +16,7 @@ export type Article = {
   date: string;
   readTime: string;
   accent: string;
-  content: string[];
+  content: string[] | string;
 };
 
 export type Review = {
@@ -84,7 +84,7 @@ export const articles: Article[] = [
     accent: "Otaku Sobrio",
     content: [
       "I personaggi secondari hanno un vantaggio sleale: possono arrivare, dire la cosa giusta nel momento giusto e sparire prima che la trama trovi il modo di rovinarli.",
-      "Questo contenuto e provvisorio e potra essere sostituito con l'articolo definitivo dedicato ai comprimari che finiscono per conquistare il pubblico.",
+      "Forse è proprio questo il loro superpotere: entrare in scena senza il peso di dover salvare il mondo e uscirne con le battute, le fragilità e i momenti che ricordiamo più a lungo.",
     ],
   },
   {
@@ -98,7 +98,7 @@ export const articles: Article[] = [
     accent: "Reading List",
     content: [
       "Ci sono giornate in cui vuoi leggere qualcosa di leggero, ma non necessariamente vuoto. Una storia capace di intrattenere senza chiederti di compilare l'albero genealogico di dodici casate rivali.",
-      "Questo contenuto e provvisorio e potra essere sostituito con la selezione definitiva di manga e i relativi consigli di lettura.",
+      "Il manga giusto non spegne il cervello: gli cambia frequenza. Per qualche capitolo il rumore resta fuori, mentre dentro continuano a muoversi immagini, idee e quella voglia molto concreta di leggere ancora una pagina.",
     ],
   },
 ];

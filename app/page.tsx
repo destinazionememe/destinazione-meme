@@ -1,187 +1,238 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, AtSign, Play, Rss } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Newsletter } from "@/components/Newsletter";
+import { Reveal } from "@/components/Reveal";
 import { ReviewCard } from "@/components/ReviewCard";
 import { SectionHeading } from "@/components/SectionHeading";
-import {
-  articles,
-  editorialTracks,
-  pillars,
-  reviews,
-  socialLinks,
-  stats,
-} from "@/lib/content";
+import { articles, reviews } from "@/lib/content";
+
+const featuredMemes = [
+  {
+    src: "/images/meme-01.webp",
+    alt: "Meme originale Destinazione Meme in bianco e nero",
+    label: "Trauma da fiaba",
+  },
+  {
+    src: "/images/meme-02.webp",
+    alt: "Meme anime sulla richiesta di offrire un Estathe",
+    label: "Galateo contemporaneo",
+  },
+  {
+    src: "/images/meme-03.webp",
+    alt: "Meme anime sulle magliette con i cartoni animati",
+    label: "Dress code adulto",
+  },
+  {
+    src: "/images/meme-04.webp",
+    alt: "Meme sulla gestione discutibile dei problemi personali",
+    label: "Priorita emotive",
+  },
+  {
+    src: "/images/meme-05.webp",
+    alt: "Meme anime sui problemi ancora irrisolti",
+    label: "Empatia in manutenzione",
+  },
+  {
+    src: "/images/meme-06.webp",
+    alt: "Personaggio rosso davanti a un'eclissi",
+    label: "Dramma cosmico",
+  },
+];
 
 export default function Home() {
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-destinazione-meme.webp"
-            alt="Studio editoriale dark dedicato ad anime, manga e cultura internet"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-55"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#070707_0%,rgba(7,7,7,0.82)_42%,rgba(7,7,7,0.36)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent" />
-        </div>
-
-        <div className="relative mx-auto grid min-h-[calc(100svh-8rem)] max-w-7xl content-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-          <div>
-            <p className="inline-flex rounded-md border border-white/15 bg-black/30 px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-ember">
-              Anime / Manga / Meme Culture
-            </p>
-            <h1 className="mt-6 max-w-4xl text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Destinazione Meme
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-paper/85">
-              Un luogo dove meme, anime e cultura pop si incontrano. Con
-              ironia, passione autentica e la consapevolezza che a volte un
-              frame fuori contesto spiega meglio di un editoriale di dodici
-              pagine.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/blog">Leggi gli articoli</ButtonLink>
-              <ButtonLink href="/recensioni" variant="ghost">
-                Vai alle recensioni
-              </ButtonLink>
-            </div>
+      <section className="relative min-h-[100svh] overflow-hidden bg-ink text-paper">
+        <div className="ambient-orb -left-40 top-20 bg-sage" />
+        <div className="ambient-orb ambient-orb-delayed -right-36 bottom-0 bg-mist" />
+        <div className="relative mx-auto flex min-h-[100svh] max-w-[94rem] flex-col justify-end px-4 pb-12 pt-36 sm:px-8 lg:px-12 lg:pb-16">
+          <div className="mb-auto flex items-center justify-between border-b border-white/15 pb-5 pt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-sage">
+            <span>Magazine indipendente / Milano</span>
+            <span className="hidden sm:inline">Anime — Manga — Internet Culture</span>
           </div>
 
-          <aside className="self-end rounded-lg border border-white/10 bg-black/45 p-5 backdrop-blur-md">
-            <div className="grid grid-cols-3 gap-3">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-md bg-white/5 p-4">
-                  <p className="text-xs uppercase tracking-[0.16em] text-ash">
-                    {stat.label}
-                  </p>
-                  <p className="mt-2 text-xl font-black text-white">
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
+          <Reveal>
+            <h1 className="font-display text-[clamp(4.5rem,14vw,13rem)] uppercase leading-[0.76]">
+              Destinazione
+              <br />
+              <span className="text-outline">Meme</span>
+            </h1>
+          </Reveal>
+
+          <div className="mt-10 grid items-end gap-8 border-t border-white/15 pt-6 lg:grid-cols-[1fr_auto]">
+            <div>
+              <p className="max-w-xl text-xl leading-8 text-paper/80 sm:text-2xl">
+                Meme, anime e cultura pop senza filtri.
+              </p>
+              <div className="mt-7 flex flex-col gap-3 text-white sm:flex-row">
+                <ButtonLink href="/blog">Leggi gli articoli</ButtonLink>
+                <ButtonLink href="/recensioni" variant="ghost">
+                  Vai alle recensioni
+                </ButtonLink>
+              </div>
             </div>
-            <div className="mt-5 grid gap-3">
-              {editorialTracks.map((track) => {
-                const Icon = track.icon;
-                return (
-                  <div
-                    key={track.label}
-                    className="flex items-center gap-3 rounded-md border border-white/10 bg-coal/75 p-3"
-                  >
-                    <Icon className="size-5 text-ember" />
-                    <span className="text-sm font-bold text-white">
-                      {track.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </aside>
+            <a
+              href="#ultimi-articoli"
+              className="grid size-14 place-items-center rounded-full border border-sage text-sage transition hover:bg-sage hover:text-ink"
+              aria-label="Vai agli ultimi articoli"
+            >
+              <ArrowDown className="size-5 animate-bounce" />
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Il progetto"
-          title="Non una pagina meme qualsiasi. Non un'enciclopedia anime con il broncio."
-          text="Destinazione Meme nasce come progetto editoriale indipendente di Simone Pedozzi: contenuti originali, recensioni, riflessioni e reportage per una community che ama la cultura nerd senza trasformarla in un esame di ammissione."
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <article
-                key={pillar.title}
-                className="rounded-lg border border-white/10 bg-coal p-5"
+      <section id="ultimi-articoli" className="bg-paper text-ink">
+        <div className="mx-auto max-w-[94rem] px-4 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Reveal>
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">
+              <SectionHeading
+                eyebrow="Ultimi articoli"
+                title="Idee, ossessioni e cose viste online."
+              />
+              <p className="max-w-md text-sm leading-7 text-ink/55 lg:justify-self-end">
+                Approfondimenti, opinioni e deviazioni controllate tra anime,
+                manga, meme e cultura internet.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-2">
+            {articles.map((article, index) => (
+              <Reveal
+                key={article.slug}
+                className={index % 2 === 1 ? "md:mt-20" : ""}
               >
-                <Icon className="size-7 text-ember" />
-                <h3 className="mt-5 text-lg font-black text-white">
-                  {pillar.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-ash">{pillar.text}</p>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-black/30">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading
-              eyebrow="Ultimi articoli"
-              title="Internet culture, ma con un minimo di lucidita."
-            />
+                <ArticleCard article={article} priority={index === 0} />
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-14 border-t border-ink/20 pt-6">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-ember hover:text-white"
+              className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em]"
             >
-              Archivio blog <ArrowRight className="size-4" />
+              Esplora tutto il blog
+              <ArrowRight className="size-4 transition group-hover:translate-x-2" />
             </Link>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {articles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-charcoal text-paper">
+        <div className="absolute -right-10 top-0 font-display text-[28rem] leading-none text-ink/25">
+          10
+        </div>
+        <div className="relative mx-auto max-w-[94rem] px-4 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Reveal>
+            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
+              <SectionHeading
+                eyebrow="Ultime recensioni"
+                title="Il voto conta. Il perche di piu."
+              />
+              <div>
+                {reviews.map((review) => (
+                  <ReviewCard key={review.slug} review={review} />
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Link
+            href="/recensioni"
+            className="group mt-12 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-sage"
+          >
+            Tutte le recensioni
+            <ArrowRight className="size-4 transition group-hover:translate-x-2" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-white text-ink">
+        <div className="mx-auto max-w-[94rem] px-4 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <Reveal>
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">
+              <SectionHeading
+                eyebrow="Meme in evidenza"
+                title="Prima si ride. Poi, forse, si analizza."
+              />
+              <p className="max-w-sm text-sm leading-7 text-ink/55 lg:justify-self-end">
+                Selezione dall&apos;archivio Destinazione Meme: cultura pop,
+                disagio quotidiano e frame usati responsabilmente.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredMemes.map((meme, index) => (
+              <Reveal
+                key={meme.src}
+                className={index % 3 === 1 ? "lg:mt-16" : ""}
+              >
+                <figure className="group">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                    <Image
+                      src={meme.src}
+                      alt={meme.alt}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 100vw"
+                      className="object-cover transition duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-ink/60 opacity-0 transition duration-500 group-hover:opacity-100" />
+                    <span className="absolute left-1/2 top-1/2 grid size-24 -translate-x-1/2 -translate-y-1/2 scale-75 place-items-center rounded-full bg-white font-display text-sm uppercase tracking-[0.16em] text-ink opacity-0 transition duration-500 group-hover:scale-100 group-hover:opacity-100">
+                      Guarda
+                    </span>
+                  </div>
+                  <figcaption className="flex items-center justify-between border-b border-ink/20 py-4 text-[10px] font-bold uppercase tracking-[0.2em]">
+                    <span>{meme.label}</span>
+                    <span className="text-blood">DM / 0{index + 1}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading
-            eyebrow="Ultime recensioni"
-            title="Anime e manga guardati con cuore caldo e pagella fredda."
-          />
-          <Link
-            href="/recensioni"
-            className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-ember hover:text-white"
-          >
-            Tutte le recensioni <ArrowRight className="size-4" />
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <ReviewCard key={review.slug} review={review} />
-          ))}
+      <section className="overflow-hidden bg-ink text-paper">
+        <div className="mx-auto grid max-w-[94rem] gap-14 px-4 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 lg:py-32">
+          <Reveal className="relative">
+            <div className="absolute -left-8 -top-8 h-2/3 w-2/3 bg-mist/20" />
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/hero-destinazione-meme.webp"
+                alt="Il mondo editoriale di Destinazione Meme"
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover grayscale transition duration-700 hover:grayscale-0"
+              />
+            </div>
+          </Reveal>
+          <Reveal className="self-center">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-sage">
+              Chi sono / Simone Pedozzi
+            </p>
+            <h2 className="mt-6 font-display text-6xl uppercase leading-[0.88] sm:text-8xl">
+              Una persona reale dietro ogni hot take.
+            </h2>
+            <p className="mt-8 max-w-2xl text-base leading-8 text-paper/60">
+              Marketing digitale, copywriting e una passione poco moderata per
+              anime, manga, meme, storytelling e cultura internet. Destinazione
+              Meme nasce per unire competenza e ironia senza trasformare la
+              passione nerd in un esame di ammissione.
+            </p>
+            <Link
+              href="/chi-sono"
+              className="group mt-9 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-sage"
+            >
+              Conosci Simone
+              <ArrowRight className="size-4 transition group-hover:translate-x-2" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
       <Newsletter />
-
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeading
-            eyebrow="Social"
-            title="Dove continua la conversazione."
-            text="Il sito e l'archivio ordinato. I social sono il posto dove nascono reaction, meme, appunti veloci e discussioni da salvare prima che diventino leggenda personale."
-          />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {socialLinks.map((social, index) => {
-              const Icon = index % 2 === 0 ? AtSign : index === 1 ? Play : Rss;
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between rounded-lg border border-white/10 bg-coal p-5 transition hover:border-white/30"
-                >
-                  <span className="font-black text-white">{social.label}</span>
-                  <Icon className="size-5 text-ember" />
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
