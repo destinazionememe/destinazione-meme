@@ -70,7 +70,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-white/10 bg-graphite shadow-glow">
               <Image
-                src={article.coverImage}
+                src={article.image}
                 alt=""
                 fill
                 priority

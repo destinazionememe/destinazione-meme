@@ -10,7 +10,13 @@ export const metadata: Metadata = {
     "Archivio articoli di Destinazione Meme su anime, manga, meme e cultura internet.",
 };
 
-const filters = ["Tutti", "Anime", "Manga", "Recensioni", "Internet Culture"];
+const filters = [
+  "Tutti",
+  "Meme Culture",
+  "Meme Marketing",
+  "Internet Culture",
+  "Creator Economy",
+];
 
 export default function BlogPage() {
   return (

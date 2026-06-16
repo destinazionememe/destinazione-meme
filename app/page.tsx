@@ -41,6 +41,11 @@ const featuredMemes = [
     alt: "Personaggio rosso davanti a un'eclissi",
     label: "Dramma cosmico",
   },
+  {
+    src: "/images/meme-09.webp",
+    alt: "Meme anime sul bloccare un contatto dopo un incontro",
+    label: "Follow-up evitato",
+  },
 ];
 
 export default function Home() {

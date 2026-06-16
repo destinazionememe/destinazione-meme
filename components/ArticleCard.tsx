@@ -9,7 +9,7 @@ export function ArticleCard({
   article: Article;
   priority?: boolean;
 }) {
-  const image = article.coverImage ?? "/images/hero-destinazione-meme.webp";
+  const image = article.image || "/images/hero-destinazione-meme.webp";
 
   return (
     <article className="group rounded-[1.5rem] border border-white/10 bg-white/[0.025] p-3 transition duration-500 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-2 hover:border-violet/40 hover:shadow-glow">
