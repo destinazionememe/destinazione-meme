@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, Send, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navItems } from "@/lib/content";
 
 export function Header() {
@@ -15,26 +15,27 @@ export function Header() {
     href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <header className="group/header fixed inset-x-0 top-4 z-50 px-3 text-white">
-      <div className="nav-shell mx-auto grid max-w-[76rem] grid-cols-[auto_1fr_auto] items-center gap-4 rounded-full px-3 py-2.5 sm:px-4">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/72 text-white backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[94rem] items-center justify-between gap-6 px-4 py-3 sm:px-8 lg:px-12">
         <Link
           href="/"
-          className="group/logo flex items-center gap-3 rounded-full py-1 pr-2"
+          className="group flex items-center gap-3"
           aria-label="Destinazione Meme"
+          onClick={() => setIsOpen(false)}
         >
-          <span className="hidden size-2.5 rounded-full bg-gradient-to-br from-blood via-violet to-cyan shadow-cyan sm:block" />
+          <span className="hidden h-8 w-px bg-gradient-to-b from-cyan via-white/30 to-blood sm:block" />
           <Image
             src="/images/logo-destinazione-meme-bianco.png"
             alt="Destinazione Meme"
             width={154}
             height={42}
             priority
-            className="h-auto w-28 object-contain transition duration-500 group-hover/logo:opacity-80 sm:w-36"
+            className="h-auto w-28 object-contain transition duration-300 group-hover:opacity-75 sm:w-32"
           />
         </Link>
 
         <nav
-          className="hidden items-center justify-center gap-1 lg:flex"
+          className="hidden items-center gap-7 lg:flex"
           aria-label="Principale"
         >
           {navItems.map((item) => {
@@ -45,25 +46,27 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`nav-link ${active ? "nav-link-active" : ""}`}
+                className={`editorial-nav-link ${
+                  active ? "editorial-nav-link-active" : ""
+                }`}
               >
-                <span>{item.label}</span>
+                {item.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex items-center justify-end gap-2">
-          <Link href="/contatti" className="shiny-action hidden sm:inline-flex">
-            <span>
-              <Send className="size-3.5" />
-              Scrivi
-            </span>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/contatti"
+            className="hidden border-b border-white/25 pb-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/72 transition duration-300 hover:border-cyan hover:text-cyan sm:inline-flex"
+          >
+            Scrivi
           </Link>
 
           <button
             type="button"
-            className="grid size-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-cyan transition duration-300 hover:border-cyan/40 hover:bg-cyan/10 lg:hidden"
+            className="grid size-10 place-items-center rounded-full border border-white/12 bg-white/[0.03] text-white/80 transition duration-300 hover:border-cyan/45 hover:text-cyan lg:hidden"
             aria-label={isOpen ? "Chiudi il menu" : "Apri il menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
@@ -71,12 +74,12 @@ export function Header() {
           >
             <Menu
               className={`col-start-1 row-start-1 size-5 transition duration-300 ${
-                isOpen ? "rotate-90 scale-75 opacity-0" : "rotate-0 opacity-100"
+                isOpen ? "rotate-45 scale-75 opacity-0" : "rotate-0 opacity-100"
               }`}
             />
             <X
               className={`col-start-1 row-start-1 size-5 transition duration-300 ${
-                isOpen ? "rotate-0 opacity-100" : "-rotate-90 scale-75 opacity-0"
+                isOpen ? "rotate-0 opacity-100" : "-rotate-45 scale-75 opacity-0"
               }`}
             />
           </button>
@@ -85,13 +88,16 @@ export function Header() {
 
       <div
         id="mobile-navigation"
-        className={`mx-auto mt-3 max-w-[92vw] origin-top rounded-[1.35rem] border border-white/10 bg-black/80 p-2 shadow-glow backdrop-blur-2xl transition duration-500 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] lg:hidden ${
+        className={`mx-auto max-w-[94rem] overflow-hidden px-4 transition-[max-height,opacity,transform] duration-450 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] sm:px-8 lg:hidden ${
           isOpen
-            ? "pointer-events-auto scale-y-100 opacity-100"
-            : "pointer-events-none scale-y-95 opacity-0"
+            ? "max-h-96 translate-y-0 opacity-100"
+            : "pointer-events-none max-h-0 -translate-y-2 opacity-0"
         }`}
       >
-        <nav className="grid gap-1" aria-label="Navigazione mobile">
+        <nav
+          className="grid gap-1 border-t border-white/10 py-3"
+          aria-label="Navigazione mobile"
+        >
           {navItems.map((item, index) => {
             const active = isActive(item.href);
 
@@ -100,14 +106,14 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`mobile-nav-link ${
-                  active ? "mobile-nav-link-active" : ""
-                } ${isOpen ? "mobile-nav-link-visible" : ""}`}
-                style={{ transitionDelay: `${index * 35}ms` }}
+                className={`mobile-editorial-link ${
+                  active ? "mobile-editorial-link-active" : ""
+                } ${isOpen ? "mobile-editorial-link-visible" : ""}`}
+                style={{ transitionDelay: `${index * 28}ms` }}
                 onClick={() => setIsOpen(false)}
               >
                 <span>{item.label}</span>
-                <span className="font-display text-2xl leading-none text-white/18">
+                <span className="font-display text-xl leading-none text-white/20">
                   0{index + 1}
                 </span>
               </Link>
