@@ -56,37 +56,37 @@ export default function Home() {
         <div className="ambient-orb -left-40 top-16 bg-violet" />
         <div className="ambient-orb ambient-orb-delayed -right-36 bottom-0 bg-cyan" />
         <div className="relative mx-auto flex min-h-[100svh] max-w-[94rem] flex-col justify-center px-4 pb-12 pt-40 text-center sm:px-8 lg:px-12">
-          <div className="mx-auto mb-10 flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cyan backdrop-blur-xl">
+          <div className="hero-stagger hero-delay-0 mx-auto mb-10 flex w-fit items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-cyan backdrop-blur-xl">
             <span className="size-2 rounded-full bg-cyan shadow-cyan" />
             Magazine indipendente / Anime, Manga, Meme
           </div>
 
-          <Reveal>
-            <h1 className="mx-auto max-w-6xl font-display text-[clamp(4.25rem,13vw,11rem)] uppercase leading-[0.82] tracking-[-0.055em]">
-              DESTINAZIONE
-              <br />
-              <span className="shimmer-text">MEME</span>
-            </h1>
-          </Reveal>
+          <h1 className="hero-stagger hero-delay-1 mx-auto max-w-6xl font-display text-[clamp(4.25rem,13vw,11rem)] uppercase leading-[0.82] tracking-[-0.055em]">
+            DESTINAZIONE
+            <br />
+            <span className="shimmer-text">MEME</span>
+          </h1>
 
-          <p className="mx-auto mt-8 max-w-2xl text-xl leading-8 text-white/62 sm:text-2xl">
+          <p className="hero-stagger hero-delay-2 mx-auto mt-8 max-w-2xl text-xl leading-8 text-white/62 sm:text-2xl">
             Meme, anime e cultura pop senza filtri.
           </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-3 text-white sm:flex-row">
-            <ButtonLink href="/blog">Leggi gli articoli</ButtonLink>
+          <div className="hero-stagger hero-delay-3 mt-8 flex flex-col justify-center gap-3 text-white sm:flex-row">
+            <ButtonLink href="/blog" special>
+              Leggi gli articoli
+            </ButtonLink>
             <ButtonLink href="/recensioni" variant="ghost">
               Vai alle recensioni
             </ButtonLink>
           </div>
 
-          <div className="mt-14 hidden items-center justify-between border-t border-white/10 pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white/40 md:flex">
+          <div className="hero-stagger hero-delay-4 mt-14 hidden items-center justify-between border-t border-white/10 pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white/40 md:flex">
             <span>Magazine indipendente / Milano</span>
             <span>Anime — Manga — Internet Culture</span>
           </div>
           <a
             href="#ultimi-articoli"
-            className="absolute bottom-6 left-1/2 grid size-12 -translate-x-1/2 place-items-center rounded-full border border-white/15 text-cyan transition hover:bg-cyan hover:text-ink"
+            className="hero-stagger-center hero-delay-5 absolute bottom-6 left-1/2 grid size-12 place-items-center rounded-full border border-white/15 text-cyan transition hover:bg-cyan hover:text-ink"
             aria-label="Vai agli ultimi articoli"
           >
             <ArrowDown className="size-5 animate-bounce" />
