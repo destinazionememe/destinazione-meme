@@ -4,6 +4,7 @@ out
 dist
 .vercel
 .tools
+.tmp
 .npm-cache
 *.log
 *.tsbuildinfo
