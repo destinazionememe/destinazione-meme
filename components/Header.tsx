@@ -59,7 +59,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contatti"
-            className="hidden border-b border-white/25 pb-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/72 transition duration-300 hover:border-cyan hover:text-cyan sm:inline-flex"
+            className="header-cta-link hidden sm:inline-flex"
           >
             Scrivi
           </Link>
@@ -88,7 +88,7 @@ export function Header() {
 
       <div
         id="mobile-navigation"
-        className={`mx-auto max-w-[94rem] overflow-hidden px-4 transition-[max-height,opacity,transform] duration-450 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] sm:px-8 lg:hidden ${
+        className={`mx-auto max-w-[94rem] overflow-hidden px-4 transition-[max-height,opacity,transform] duration-[450ms] [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] sm:px-8 lg:hidden ${
           isOpen
             ? "max-h-96 translate-y-0 opacity-100"
             : "pointer-events-none max-h-0 -translate-y-2 opacity-0"

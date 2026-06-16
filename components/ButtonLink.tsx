@@ -5,16 +5,20 @@ type ButtonLinkProps = {
   href: string;
   children: ReactNode;
   variant?: "primary" | "ghost";
+  special?: boolean;
 };
 
 export function ButtonLink({
   href,
   children,
   variant = "primary",
+  special = false,
 }: ButtonLinkProps) {
   const className =
-    variant === "primary"
-      ? "border border-transparent bg-white text-ink before:absolute before:inset-[-120%] before:-z-10 before:animate-[spin_4s_linear_infinite] before:bg-[conic-gradient(from_0deg,transparent_0%,#8b5cf6_38%,#06b6d4_50%,transparent_62%)] before:content-[''] hover:bg-cyan"
+    special
+      ? "hero-cta-special text-white"
+      : variant === "primary"
+      ? "border border-transparent bg-white text-ink hover:bg-cyan hover:-translate-y-0.5"
       : "border border-white/18 bg-white/5 text-current backdrop-blur-xl hover:border-cyan/50 hover:text-cyan";
 
   return (
