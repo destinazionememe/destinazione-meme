@@ -5,15 +5,15 @@ export function Footer() {
   return (
     <footer className="bg-ink text-paper">
       <div className="mx-auto max-w-[94rem] px-4 pb-8 pt-20 sm:px-8 lg:px-12 lg:pt-28">
-        <div className="grid gap-12 border-b border-white/15 pb-16 lg:grid-cols-[1.3fr_0.7fr]">
+        <div className="glass-panel grid gap-12 rounded-[1.5rem] p-6 lg:grid-cols-[1.3fr_0.7fr] lg:p-10">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-sage">
               Fine dello scroll, non della conversazione
             </p>
-            <p className="mt-6 max-w-5xl font-display text-[clamp(4rem,11vw,10rem)] uppercase leading-[0.78]">
+            <p className="mt-6 max-w-5xl font-display text-[clamp(4rem,11vw,10rem)] leading-[0.78] tracking-[-0.055em]">
               Restiamo
               <br />
-              <span className="text-outline">in contatto</span>
+              <span className="shimmer-text">in contatto</span>
             </p>
             <a
               href="mailto:ciao@destinazionememe.it"
@@ -61,7 +61,10 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-3 pt-6 text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Destinazione Meme</p>
-          <p>Meme, anime e cultura pop senza filtri.</p>
+          <p className="inline-flex items-center gap-2">
+            <span className="size-2 rounded-full bg-emerald" />
+            Meme, anime e cultura pop senza filtri.
+          </p>
         </div>
       </div>
     </footer>

@@ -12,9 +12,10 @@ export const metadata: Metadata = {
 
 export default function ContattiPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-coal px-4 pb-24 pt-40 text-paper sm:px-8 lg:px-12">
-      <div className="ambient-orb -left-40 top-24 bg-blood" />
-      <div className="ambient-orb ambient-orb-delayed -right-48 bottom-24 bg-sage" />
+    <main className="relative min-h-screen overflow-hidden bg-coal px-4 pb-24 pt-44 text-paper sm:px-8 lg:px-12">
+      <div className="neural-grid absolute inset-0 opacity-30" />
+      <div className="ambient-orb -left-40 top-24 bg-violet" />
+      <div className="ambient-orb ambient-orb-delayed -right-48 bottom-24 bg-cyan" />
       <div className="relative mx-auto grid max-w-[94rem] gap-16 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <SectionHeading
@@ -25,9 +26,9 @@ export default function ContattiPage() {
           <div className="mt-10 border-t border-white/15 pt-8">
             <a
               href="mailto:ciao@destinazionememe.it"
-              className="inline-flex items-center gap-3 text-lg text-white/70 transition hover:text-sage"
+              className="inline-flex items-center gap-3 text-lg text-white/70 transition hover:text-cyan"
             >
-              <Mail className="size-5 text-sage" />
+              <Mail className="size-5 text-cyan" />
               ciao@destinazionememe.it
             </a>
             <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3">
@@ -37,7 +38,7 @@ export default function ContattiPage() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 transition hover:text-sage"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 transition hover:text-cyan"
                 >
                   {social.label}
                 </a>
@@ -47,11 +48,11 @@ export default function ContattiPage() {
         </Reveal>
 
         <Reveal>
-          <form className="border-t border-white/20 pt-8">
+          <form className="glass-panel rounded-[1.5rem] p-5 sm:p-7">
             <div className="grid gap-8">
               <div>
                 <label
-                  className="text-xs font-bold uppercase tracking-[0.2em] text-sage"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cyan"
                   htmlFor="name"
                 >
                   Nome
@@ -59,13 +60,13 @@ export default function ContattiPage() {
                 <input
                   id="name"
                   name="name"
-                  className="mt-3 min-h-14 w-full border-b border-white/25 bg-transparent text-lg text-white outline-none transition focus:border-sage"
+                  className="mt-3 min-h-14 w-full border-b border-white/25 bg-transparent text-lg text-white outline-none transition focus:border-cyan"
                   placeholder="Il tuo nome"
                 />
               </div>
               <div>
                 <label
-                  className="text-xs font-bold uppercase tracking-[0.2em] text-sage"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cyan"
                   htmlFor="email"
                 >
                   Email
@@ -74,13 +75,13 @@ export default function ContattiPage() {
                   id="email"
                   name="email"
                   type="email"
-                  className="mt-3 min-h-14 w-full border-b border-white/25 bg-transparent text-lg text-white outline-none transition focus:border-sage"
+                  className="mt-3 min-h-14 w-full border-b border-white/25 bg-transparent text-lg text-white outline-none transition focus:border-cyan"
                   placeholder="la.tua@email.it"
                 />
               </div>
               <div>
                 <label
-                  className="text-xs font-bold uppercase tracking-[0.2em] text-sage"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cyan"
                   htmlFor="message"
                 >
                   Messaggio
@@ -89,13 +90,13 @@ export default function ContattiPage() {
                   id="message"
                   name="message"
                   rows={6}
-                  className="mt-4 w-full resize-y border border-white/25 bg-black/10 px-4 py-4 text-lg text-white outline-none transition focus:border-sage"
+                  className="mt-4 w-full resize-y rounded-[1rem] border border-white/25 bg-black/10 px-4 py-4 text-lg text-white outline-none transition focus:border-cyan"
                   placeholder="Raccontami tutto, anche la parte assurda."
                 />
               </div>
               <button
                 type="submit"
-                className="inline-flex min-h-14 items-center justify-center gap-3 bg-sage px-6 text-xs font-bold uppercase tracking-[0.2em] text-ink transition hover:bg-white"
+                className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-6 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink transition hover:bg-cyan"
               >
                 <Send className="size-4" />
                 Invia messaggio
