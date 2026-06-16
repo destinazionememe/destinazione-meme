@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { ButtonLink } from "@/components/ButtonLink";
+import { HeroInteractiveGlow } from "@/components/HeroInteractiveGlow";
 import { MetricTicker } from "@/components/MetricTicker";
 import { Newsletter } from "@/components/Newsletter";
 import { Reveal } from "@/components/Reveal";
@@ -52,6 +53,7 @@ export default function Home() {
   return (
     <main>
       <section className="relative min-h-[100svh] overflow-hidden bg-ink text-paper">
+        <HeroInteractiveGlow />
         <div className="neural-grid absolute inset-0 opacity-45" />
         <div className="ambient-orb -left-40 top-16 bg-violet" />
         <div className="ambient-orb ambient-orb-delayed -right-36 bottom-0 bg-cyan" />
