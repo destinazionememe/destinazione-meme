@@ -63,7 +63,7 @@ export default function Home() {
             Magazine indipendente / Anime, Manga, Meme
           </div>
 
-          <h1 className="hero-stagger hero-delay-1 mx-auto max-w-6xl font-display text-[clamp(4.25rem,13vw,11rem)] uppercase leading-[0.82] tracking-[-0.055em]">
+          <h1 className="hero-title hero-stagger hero-delay-1 mx-auto max-w-6xl font-display uppercase leading-[0.82]">
             DESTINAZIONE
             <br />
             <span className="shimmer-text">MEME</span>
