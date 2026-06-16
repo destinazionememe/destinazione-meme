@@ -75,6 +75,40 @@ button {
   box-shadow: 0 0 42px -28px rgba(139, 92, 246, 0.75);
 }
 
+.hero-interactive-glow {
+  --glow-x: 50%;
+  --glow-y: 42%;
+  position: absolute;
+  inset: -16%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at var(--glow-x) var(--glow-y),
+      rgba(139, 92, 246, 0.34),
+      rgba(139, 92, 246, 0.11) 18rem,
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at calc(var(--glow-x) + 12%) calc(var(--glow-y) + 10%),
+      rgba(6, 182, 212, 0.24),
+      rgba(6, 182, 212, 0.08) 14rem,
+      transparent 30rem
+    ),
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.05), transparent 30rem),
+    #030303;
+  filter: blur(18px);
+  opacity: 0.92;
+  transform: translateZ(0);
+  will-change: background;
+}
+
+.hero-interactive-glow::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  background: radial-gradient(circle at center, transparent 0%, rgba(3, 3, 3, 0.28) 64%, rgba(3, 3, 3, 0.72) 100%);
+}
+
 .hero-stagger {
   opacity: 0;
   transform: translateY(20px);
